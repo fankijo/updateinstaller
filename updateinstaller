@@ -1,41 +1,41 @@
 #!/bin/bash
 
-#Wird jeden Tag um 05:00 Uhr von cron ausgeführt.
-#Dieses Script installiert Updates mit apt-get, wenn welche vorhanden sind.
-#Gebastelt von Johannes Fankhauser
+#Automatically installs apt updates on your Ubuntu machine
+#copyright fankijo
 
-#Setze Path Variable
+#set path variable
 export PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin
 
-#Schreibe Datum und Uhrzeit in log
+#If logged, theres the date
 date
 
-#Aktualisiere Paketlisten
+#update sourcelists
 echo ""
 echo "getting updates from sourcelists"
 apt-get update
 
-#Installiere Updates
+#install the updates
 echo ""
 echo "installing updates"
 apt-get upgrade -y
 
-#Installiere dist Updates
+#install dist upgrades
 echo ""
 echo "installing dist updates"
 apt-get dist-upgrade -y
 
-#Lösche Paketcache (zur installation heruntergeladene Pakete)
+#delete packet cache
 echo ""
 echo "cleaning temp files"
 apt-get clean -y
 
-#Deinstalliere nicht mehr benötigte Pakete
+#uninstall no longer needed packages
 echo ""
 echo "uninstalling no longer needed pakages"
 apt autoremove -y
 
-#Überprüfe, ob ein Neustart anch den Updates erforderlich ist
+#check if reboot is necessarry
+#Remove the section below if you dont want this script to automatically reboot your machine
 if [ -f "/var/run/reboot-required" ]
 then
         echo ""
