@@ -1,0 +1,48 @@
+#!/bin/bash
+
+#Wird jeden Tag um 05:00 Uhr von cron ausgeführt.
+#Dieses Script installiert Updates mit apt-get, wenn welche vorhanden sind.
+#Gebastelt von Johannes Fankhauser
+
+#Setze Path Variable
+export PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin
+
+#Schreibe Datum und Uhrzeit in log
+date
+
+#Aktualisiere Paketlisten
+echo ""
+echo "getting updates from sourcelists"
+apt-get update
+
+#Installiere Updates
+echo ""
+echo "installing updates"
+apt-get upgrade -y
+
+#Installiere dist Updates
+echo ""
+echo "installing dist updates"
+apt-get dist-upgrade -y
+
+#Lösche Paketcache (zur installation heruntergeladene Pakete)
+echo ""
+echo "cleaning temp files"
+apt-get clean -y
+
+#Deinstalliere nicht mehr benötigte Pakete
+echo ""
+echo "uninstalling no longer needed pakages"
+apt autoremove -y
+
+#Überprüfe, ob ein Neustart anch den Updates erforderlich ist
+if [ -f "/var/run/reboot-required" ]
+then
+        echo ""
+        echo "Reboot is required."
+        echo "T minus 60 Sekunden"
+        shutdown --reboot +1
+else
+        echo ""
+        echo "No reboot required."
+fi
