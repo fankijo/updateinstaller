@@ -4,7 +4,7 @@
 #copyright fankijo
 
 #cronjob line:
-#* 4 * * * /bin/updateinstaller
+#0 4 * * * /bin/updateinstaller
 
 #set path variable
 export PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin
