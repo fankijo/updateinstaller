@@ -12,6 +12,9 @@ export PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin
 #If logged, theres the date
 date
 
+#Remove problems if exist
+dpkg --configure -a
+
 #update sourcelists
 echo ""
 echo "getting updates from sourcelists"
