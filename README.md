@@ -2,7 +2,9 @@
 automatically installs updates on any Ubuntu/debian machine
 
 **Install script automatically:**
+
 `curl -sSL https://raw.githubusercontent.com/fankijo/updateinstaller/master/install-autoupdates.sh | bash`
+
 
 **Install manually:**
 
