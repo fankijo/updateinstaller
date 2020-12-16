@@ -1,9 +1,10 @@
 # updateinstaller
 automatically installs updates on any Ubuntu/debian machine
 
-## Install script automatically:
+**Install script automatically:**
 `curl -sSL https://raw.githubusercontent.com/fankijo/updateinstaller/master/install-autoupdates.sh | bash`
 
+**Install manually:**
 
 run this script as cron job with root rights to be sure ur machine is up to date
 
