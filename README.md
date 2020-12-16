@@ -1,6 +1,9 @@
 # updateinstaller
 automatically installs updates on any Ubuntu machine
 
+Install script automatically:
+
+
 run this script as cron job with root rights to be sure ur machine is up to date
 
 - copy script to /bin/updateinstaller
