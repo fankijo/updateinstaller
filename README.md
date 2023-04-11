@@ -1,5 +1,5 @@
 # updateinstaller
-automatically installs updates on any debian machine
+Keeps your debian up to date!
 
 **Install script automatically:**
 
