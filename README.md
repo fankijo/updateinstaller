@@ -1,5 +1,5 @@
 # updateinstaller
-automatically installs updates on any Ubuntu/debian machine
+automatically installs updates on any debian machine
 
 **Install script automatically:**
 
