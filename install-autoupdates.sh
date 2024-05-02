@@ -18,3 +18,5 @@ crontab ~/cronjobs
 echo "Cronjob installed"
 
 rm ~/cronjobs
+
+mkdir /var/log/updateinstaller
