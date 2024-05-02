@@ -4,7 +4,7 @@
 #copyright fankijo
 
 #cronjob line:
-#0 4 * * * /bin/updateinstaller
+#0 4 * * * /bin/updateinstaller >> /var/log/updateinstaller/$(date +"%Y-%m-%d").log
 
 #set path variable
 export PATH=$PATH:/usr/local/sbin:/usr/sbin:/sbin
@@ -39,6 +39,9 @@ apt-get clean -y
 echo ""
 echo "uninstalling no longer needed pakages"
 apt autoremove -y
+
+#delete updateinstaller log files older than 14 days
+find /var/log/updateinstaller/ -mindepth 1 -mtime +14 -delete
 
 #check if reboot is necessarry
 #Remove the section below if you dont want this script to automatically reboot your machine
